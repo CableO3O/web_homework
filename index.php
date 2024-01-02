@@ -1,3 +1,4 @@
+<?php include_once "./api/db.php" ?>
 <!doctype html>
 <html lang="en">
 
@@ -43,12 +44,19 @@
                         </form>
                     </li>
                 </ul>
-
-                <div class="d-flex">
-                    <a href="">註冊</a>
-                    &nbsp;|&nbsp;
-                    <a href="./front/login.php">登入</a>
-                </div>
+                <?php
+                if (!isset($_SESSION['login'])) {
+                ?>
+                    <div class="d-flex">
+                        <a href="">註冊</a>
+                        &nbsp;|&nbsp;
+                        <a href="./front/login.php">登入</a>
+                    </div>
+                <?php
+                } else {
+                    echo $_SESSION['login'] . "歡迎";
+                    echo "<botton>登出</button>";
+                } ?>
             </div>
         </div>
     </nav>

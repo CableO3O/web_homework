@@ -145,5 +145,12 @@ function dd($array)
     echo "</pre>";
 }
 
+function to($url) {
+    header("location:$url");
+}
+
+$Login=new DB('login');
+
+
 
 ?>

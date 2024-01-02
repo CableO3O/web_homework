@@ -34,10 +34,17 @@
             <div class="col-4" style="background-color: lightgray;"></div>
             <div class="col-4 text-center">
                 <h2 class="mt-5">會員登入</h2>
-                <form action="./api/login.php" method="post" class="form-control">
+                <form action="../api/login.php" method="post" class="form-control">
                 <input type="text" name="acc" id="acc" class="col-3 form-control mt-5" placeholder="請輸入帳號">
                 <input type="text" name="pw" id="pw" class="col-3 form-control mt-5" placeholder="請輸入密碼">
                 <input type="submit" value="送出" class="btn btn-primary mt-5 mb-5 form-control">
+                    <?php
+                    if (isset($_GET['error'])) {
+                       echo "<span style=color:red>";
+                       echo $_GET['error'];
+                       echo "</span>";
+                    }
+                    ?>
                 </form>
                 <p class="mt-5">沒有OO商城帳號?<a href="">點我註冊</a></p>
             </div>
