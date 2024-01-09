@@ -49,12 +49,12 @@
 
   <div class="content">
     <?php
-    $do = $_GET['do'] ?? 'main';
+    $do = $_GET['do'] ?? 'user_data';
     $file = "./front/{$do}.php";
     if (file_exists($file)) {
       include $file;
     } else {
-      include "./front/main.php";
+      include "./front/user_data.php";
     }
 
     ?>
