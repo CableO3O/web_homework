@@ -55,7 +55,7 @@
                 <?php
                 } else {
                     echo $_SESSION['login'] . "歡迎";
-                    echo "<botton>登出</button>";
+                    echo "<button>登出</button>";
                 } ?>
             </div>
         </div>
