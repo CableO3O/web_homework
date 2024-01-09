@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-	<script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>
@@ -54,20 +54,35 @@
                         <a href="./front/login.php">登入</a>
                     </div>
                 <?php
-                } else {
-                    echo "<div class='me-5'>";
-                    echo $_SESSION['user'] . "歡迎";
-                    echo "</div>";
-                    echo "<button class='btn btn-danger'>登出</button>";
-                } ?>
+                } else if($_SESSION['user']=='admin'){
+                ?>
+                    <div class='me-5'>
+                        <?= $_SESSION['user'];?>歡迎
+                    </div>
+                    <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
+                    <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
+                <?php
+                }else{
+                    ?>
+                    <div class='me-5'>
+                        <?= $_SESSION['user'];?>歡迎
+                    </div>
+                    <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
+                    <a href="./front/user.php" class='btn btn-primary me-5'>會員中心</a>
+<?php
+                }
+                ?>
             </div>
         </div>
     </nav>
+    <div class="container-fluid"></div>
+    <footer class="container-fluid"></footer>
+    <script>
+        function logout() {
 
+        }
+    </script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 
 </html>
