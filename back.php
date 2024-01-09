@@ -37,6 +37,7 @@
 
   <!-- 側邊選單 -->
   <div class="sidebar">
+    <a href="./index.php">返回首頁</a>
     <a href="#">選項 1</a>
     <a href="#">選項 2</a>
     <a href="#">選項 3</a>
