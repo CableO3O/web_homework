@@ -1,0 +1,23 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <h2 class="mt-5">上架物品</h2>
+                <div class="row" style="text-align: left;">
+                    <input type="hidden" name="id" id="id" value="<?= $user['id']; ?>">
+                    <label for="name" class="mt-5">商品名稱:</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+                <div class="row" style="text-align: left;">
+                    <label for="number" class="mt-5">商品價格:</label>
+                    <input type="number" name="number" id="number" class="form-control">
+                </div>
+                <div class="row" style="text-align: left;">
+                    <label for="img" class="mt-5">商品圖片:</label>
+                    <input type="file" name="img" id="img" class="form-control">
+                </div>
+                <input type="submit" value="上架" class="btn btn-primary mt-5 mb-5 form-control" onclick="updateData()">
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>

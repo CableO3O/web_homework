@@ -43,7 +43,8 @@
   <div class="sidebar">
     <a href="index.php" class="fa-solid fa-house">返回首頁</a>
     <a href="?do=user_data">會員資料</a>
-    <a href="?do=upload">上架商品資料</a>
+    <a href="?do=sell_list">我的賣場</a>
+    <a href="?do=upload">上架物品</a>
   </div>
 
   <div class="content">
