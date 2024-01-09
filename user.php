@@ -6,8 +6,9 @@
   <meta charset="UTF-8">
   <title>Bootstrap Sidebar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="./js/jquery-1.9.1.min.js"></script>
   <script src="https://kit.fontawesome.com/030ac11f0f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/jquery-1.9.1.min.js"></script>
   <style>
     .sidebar {
       position: fixed;
@@ -16,14 +17,14 @@
       height: 100%;
       width: 250px;
       padding-top: 50px;
-      background-color: #333;
-      color: #fff;
+      background-color: lightsalmon;
+      color: white;
     }
 
     .sidebar a {
       padding: 10px;
       display: block;
-      color: #fff;
+      color: white;
       text-decoration: none;
     }
 
