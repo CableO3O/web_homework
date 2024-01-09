@@ -149,7 +149,7 @@ function to($url) {
     header("location:$url");
 }
 
-$Login=new DB('login');
+$User=new DB('users');
 
 
 
