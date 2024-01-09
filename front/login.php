@@ -57,9 +57,9 @@
                     $.post("../api/chk_pw.php",{acc:$("#acc").val(),pw:$("#pw").val()},(res)=>{
                         if (parseInt(res)==1) {
                             if ($("#acc").val()=='admin') {
-                                location.href='back.php'
+                                location.href='../back.php'
                             }else{
-                                location.href='index.php'
+                                location.href='../index.php'
                             }
                         }else{
                             alert("密碼錯誤")
