@@ -49,7 +49,7 @@
                 if (!isset($_SESSION['user'])) {
                 ?>
                     <div class="d-flex">
-                        <a href="">註冊</a>
+                        <a href="./front/reg.php">註冊</a>
                         &nbsp;|&nbsp;
                         <a href="./front/login.php">登入</a>
                     </div>
@@ -78,9 +78,7 @@
     <div class="container-fluid"></div>
     <footer class="container-fluid"></footer>
     <script>
-        function logout() {
-
-        }
+        
     </script>
 
 </body>
