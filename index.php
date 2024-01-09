@@ -68,7 +68,7 @@
                         <?= $_SESSION['user'];?>歡迎
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
-                    <a href="./front/user.php" class='btn btn-primary me-5'>會員中心</a>
+                    <a href="user.php" class='btn btn-primary me-5'>會員中心</a>
 <?php
                 }
                 ?>

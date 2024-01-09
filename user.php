@@ -1,10 +1,13 @@
+<?php include_once"db.php";?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Bootstrap Sidebar</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-	<script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/030ac11f0f.js" crossorigin="anonymous"></script>
   <style>
     .sidebar {
       position: fixed;
@@ -16,36 +19,47 @@
       background-color: #333;
       color: #fff;
     }
+
     .sidebar a {
       padding: 10px;
       display: block;
       color: #fff;
       text-decoration: none;
     }
+
     .sidebar a:hover {
       background-color: #555;
     }
+
     .content {
       margin-left: 250px;
       padding: 20px;
     }
   </style>
 </head>
+
 <body>
 
   <div class="sidebar">
-    <a href="./index.php">返回首頁</a>
-    <a href="#">選項 1</a>
-    <a href="#">選項 2</a>
-    <a href="#">選項 3</a>
-    <a href="#">選項 4</a>
+    <a href="index.php" class="fa-solid fa-house">返回首頁</a>
+    <a href="?do=user_data">會員資料</a>
+    <a href="?do=upload">上架商品資料</a>
   </div>
 
   <div class="content">
-    <h1>主要內容</h1>
-    <p>這裡是主要的內容區域。</p>
+    <?php
+    $do = $_GET['do'] ?? 'main';
+    $file = "./front/{$do}.php";
+    if (file_exists($file)) {
+      include $file;
+    } else {
+      include "./front/main.php";
+    }
+
+    ?>
   </div>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
