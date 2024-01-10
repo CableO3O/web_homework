@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">客服中心</a>
                     </li>
@@ -53,32 +53,59 @@
                         <a href="./front/login.php">登入</a>
                     </div>
                 <?php
-                } else if($_SESSION['user']=='admin'){
+                } else if ($_SESSION['user'] == 'admin') {
                 ?>
                     <div class='me-5'>
-                        <?= $_SESSION['user'];?>歡迎
+                        <?= $_SESSION['user']; ?>歡迎
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
                     <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
                 <?php
-                }else{
-                    ?>
+                } else {
+                ?>
                     <div class='me-5'>
-                        <?= $_SESSION['user'];?>歡迎
+                        <?= $_SESSION['user']; ?>歡迎
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
                     <a href="user.php" class='btn btn-primary me-5'>會員中心</a>
-<?php
+                <?php
                 }
                 ?>
             </div>
         </div>
     </nav>
-    <div class="container-fluid"></div>
-    <footer class="container-fluid"></footer>
-    <script>
-        
-    </script>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active" data-bs-interval="2000">
+                            <img src="./imgs/1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="./imgs/2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./imgs/3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <footer class="container-fluid">
+
+        </footer>
+        <script>
+
+        </script>
 
 </body>
 
