@@ -1,6 +1,5 @@
 <?php
 include_once "db.php";
-unlink($img);
 if (!empty($_FILES['img']['tmp_name'])) {
     $tmp=explode(".",$_FILES['img']['name']);
     $subname=".".end($tmp);

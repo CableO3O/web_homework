@@ -23,7 +23,7 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             修改
                         </button>
-                        <input type="button" value="刪除" class="btn btn-danger">
+                        <input type="button" value="下架" class="btn btn-danger">
                     </td>
                 </tr>
                 <!-- Modal -->
@@ -35,9 +35,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="./api/sell.php" method="post" enctype="multipart/form-data">
+                                <form action="./api/sell_change.php" method="post" enctype="multipart/form-data">
                                     <div class="row" style="text-align: left;">
                                         <input type="hidden" name="id" id="id" value="<?= $value['id']; ?>">
+                                        <input type="hidden" name="user_id" id="user_id" value="<?= $value['user_id']; ?>">
+                                        <input type="hidden" name="user_img" id="user_img" value="<?= $value['img']; ?>">
                                         <label for="name" class="mt-5">商品名稱:</label>
                                         <input type="text" name="name" id="name" class="form-control" value="<?= $value['name']; ?>">
                                     </div>
