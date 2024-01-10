@@ -2,9 +2,10 @@
     <table style="width: 100%;">
         <tr>
             <th width='10%'>編號</th>
-            <th width='30%'>商品圖片</th>
-            <th width='30%'>商品名稱</th>
-            <th width='15%'>商品價格</th>
+            <th width='20%'>商品圖片</th>
+            <th width='10%'>商品名稱</th>
+            <th width='10%'>商品價格</th>
+            <th width='35%'>商品說明</th>
             <th width='15%'>操作</th>
         </tr>
         <?php
@@ -12,13 +13,13 @@
         foreach ($user as $val) {
             $rows = $Shop->all(['user_id' => $val['id']]);
             foreach ($rows as $key => $value) {
-                dd($value);
         ?>
                 <tr>
                     <td width='10%'><?= $key + 1; ?></td>
-                    <td width='30%'><img style="width: 250px; height:250px;" src="./imgs/<?= $value['img']; ?>" alt=""></td>
-                    <td width='30%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['name']; ?>"></td>
-                    <td width='15%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['price']; ?>"></td>
+                    <td width='20%'><img style="width: 250px; height:250px;" src="./imgs/<?= $value['img']; ?>" alt=""></td>
+                    <td width='10%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['name']; ?>"></td>
+                    <td width='10%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['price']; ?>"></td>
+                    <td width='35%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['text']; ?>"></td>
                     <td width='15%'>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             修改
@@ -46,6 +47,10 @@
                                     <div class="row" style="text-align: left;">
                                         <label for="number" class="mt-5">商品價格:</label>
                                         <input type="number" name="price" id="price" class="form-control" value="<?= $value['price']; ?>">
+                                    </div>
+                                    <div class="row" style="text-align: left;">
+                                        <label for="text" class="mt-5">商品說明:</label>
+                                        <input type="text" name="text" id="text" class="form-control" value="<?= $value['text']; ?>">
                                     </div>
                                     <div class="row" style="text-align: left;">
                                         <label for="img" class="mt-5">商品圖片:</label>
