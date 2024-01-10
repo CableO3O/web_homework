@@ -13,7 +13,6 @@
         foreach ($user as $val) {
             $rows = $Shop->all(['user_id' => $val['id']]);
             foreach ($rows as $key => $value) {
-                dd($value);
         ?>
                 <tr>
                     <td width='10%'><?= $key + 1; ?></td>
