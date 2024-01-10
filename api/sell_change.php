@@ -20,6 +20,7 @@ $good=[
     'user_id'=>$_POST['user_id'],
     'name'=>$_POST['name'],
     'price'=>$_POST['price'],
+    'text'=>$_POST['text'],
     'img'=>$filename
 ];
 $Shop->save($good);

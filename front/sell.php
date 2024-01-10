@@ -22,6 +22,10 @@ foreach ($rows as $user) {
                         <label for="img" class="mt-5">商品圖片:</label>
                         <input type="file" name="img" id="img" class="form-control">
                     </div>
+                    <div class="row" style="text-align: left;">
+                        <label for="name" class="mt-5">商品說明:</label>
+                        <textarea name="text" id="text" class="form-control" cols="30" rows="10"></textarea>
+                    </div>
                     <input type="submit" value="上架" class="btn btn-primary mt-5 mb-5 form-control">
                 </form>
             </div>

@@ -13,18 +13,19 @@
         foreach ($user as $val) {
             $rows = $Shop->all(['user_id' => $val['id']]);
             foreach ($rows as $key => $value) {
+                dd($value);
         ?>
                 <tr>
                     <td width='10%'><?= $key + 1; ?></td>
                     <td width='20%'><img style="width: 250px; height:250px;" src="./imgs/<?= $value['img']; ?>" alt=""></td>
                     <td width='10%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['name']; ?>"></td>
                     <td width='10%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['price']; ?>"></td>
-                    <td width='35%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['text']; ?>"></td>
+                    <td width='35%'><textarea readonly name="text" id="text" class="form-control"  cols="30" rows="10"><?= $value['text']; ?></textarea>
                     <td width='15%'>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             修改
                         </button>
-                        <input type="button" value="下架" class="btn btn-danger">
+                        <input type="button" value="下架" class="btn btn-danger" onclick="del(<?= $value['id']; ?>)">
                     </td>
                 </tr>
                 <!-- Modal -->
@@ -50,7 +51,7 @@
                                     </div>
                                     <div class="row" style="text-align: left;">
                                         <label for="text" class="mt-5">商品說明:</label>
-                                        <input type="text" name="text" id="text" class="form-control" value="<?= $value['text']; ?>">
+                                        <textarea name="text" id="text" class="form-control" cols="30" rows="10"><?= $value['text']; ?></textarea>
                                     </div>
                                     <div class="row" style="text-align: left;">
                                         <label for="img" class="mt-5">商品圖片:</label>
@@ -68,3 +69,15 @@
         ?>
     </table>
 </div>
+<script>
+    function del(goodid) {
+        let result=confirm('確定要下架嗎?');
+        if (result) {
+            $.post('./api/delete.php',{id:goodid},()=>{          
+                alert('下架成功');
+                location.reload();
+            })
+            
+        }
+    }
+</script>
