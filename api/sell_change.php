@@ -1,6 +1,6 @@
 <?php
 include_once "db.php";
-$folderPath = "../imgs/"; // 將此路徑替換為您的資料夾路徑
+$folderPath = "../imgs/";
 
 
 if (!empty($_FILES['img']['tmp_name'])) {

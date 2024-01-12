@@ -8,7 +8,7 @@ foreach ($rows as $user) {
             <div class="col-4"></div>
             <div class="col-4 text-center">
                 <h2 class="mt-5">上架物品</h2>
-                <form action="./api/sell.php" method="post" enctype="multipart/form-data">
+                <form action="./api/add_good.php" method="post" enctype="multipart/form-data">
                     <div class="row" style="text-align: left;">
                         <input type="hidden" name="id" id="id" value="<?= $user['id']; ?>">
                         <label for="name" class="mt-5">商品名稱:</label>

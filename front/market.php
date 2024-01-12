@@ -11,8 +11,10 @@
         <?php
         $user = $User->all(['acc' => $_SESSION['user']]);
         foreach ($user as $val) {
+            // dd($val);
             $rows = $Shop->all(['user_id' => $val['id']]);
             foreach ($rows as $key => $value) {
+                dd($rows);
         ?>
                 <tr>
                     <td width='10%'><?= $key + 1; ?></td>
@@ -21,14 +23,14 @@
                     <td width='10%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="<?= $value['price']; ?>"></td>
                     <td width='35%'><textarea readonly name="text" id="text" class="form-control"  cols="30" rows="10"><?= $value['text']; ?></textarea>
                     <td width='15%'>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?= $value['id']; ?>">
                             修改
                         </button>
                         <input type="button" value="下架" class="btn btn-danger" onclick="del(<?= $value['id']; ?>)">
                     </td>
                 </tr>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal<?= $value['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
