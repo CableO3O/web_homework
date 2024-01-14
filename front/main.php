@@ -1,3 +1,8 @@
+<style>
+    .goods:hover{
+        background-color: lightgray;
+    }
+</style>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-6">
@@ -27,15 +32,15 @@
 </div>
 
 <div class="container text-center">
-    <div class="row">
+    <div class="row justify-content-around ">
         <?php
         $goods = $Shop->all();
         foreach ($goods as $good) {
         ?>
-            <div class="col-3 justify-content-around mt-3" style="border: 3px solid black;">
-                <a href="">
-                    <div>
-                        <img src="./imgs/<?=$good['img'];?>" alt="" style="width: 200px; height:200px">
+            <div class="col-2 mt-3 me-5" style="border: 3px solid lightgray;margin:auto;">
+                <a href="" style=" text-decoration-line: none;" class="goods">
+                    <div style="">
+                        <img src="./imgs/<?=$good['img'];?>" alt="" style="width: 200px; height:200px;padding-right:10px;box-sizing:border-box">
                     </div>
                     <div>
                         <span>商品名稱:<?=$good['name'];?></span>
@@ -43,9 +48,7 @@
                     <div>
                         <span style="color: red;">價格:<?=$good['price'];?></span>
                     </div>
-                    <div>
-
-                    </div>
+                    
                 </a>
             </div>
         <?php
