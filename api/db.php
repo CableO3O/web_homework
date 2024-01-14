@@ -91,7 +91,7 @@ class DB{
         } else if (is_numeric($id)) {
             $sql .= " `id`='$id'";
         } else {
-            echo "錯誤:參數的資料型態比須是數字或陣列";
+            echo "錯誤:參數的資料型態比須是數字或陣列123";
         }
         //echo $sql;
     

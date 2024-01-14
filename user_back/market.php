@@ -73,7 +73,7 @@
     function del(goodid) {
         let result=confirm('確定要下架嗎?');
         if (result) {
-            $.post('./api/delete.php',{id:goodid},()=>{          
+            $.post('./api/delete_good.php',{id:goodid},()=>{          
                 alert('下架成功');
                 location.reload();
             })
