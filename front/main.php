@@ -1,8 +1,3 @@
-<style>
-    .goods:hover{
-        background-color: lightgray;
-    }
-</style>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-6">
@@ -30,32 +25,44 @@
         </div>
     </div>
 </div>
-
 <div class="container text-center">
-    <div class="row justify-content-around ">
-        <?php
-        $goods = $Shop->all();
-        foreach ($goods as $good) {
-        ?>
-            <div class="col-2 mt-3 me-5" style="border: 3px solid lightgray;margin:auto;">
-                <a href="" style=" text-decoration-line: none;" class="goods">
-                    <div style="">
-                        <img src="./imgs/<?=$good['img'];?>" alt="" style="width: 200px; height:200px;padding-right:10px;box-sizing:border-box">
-                    </div>
-                    <div>
-                        <span>商品名稱:<?=$good['name'];?></span>
-                    </div>
-                    <div>
-                        <span style="color: red;">價格:<?=$good['price'];?></span>
-                    </div>
-                    
-                </a>
-            </div>
-        <?php
-        }
-        ?>
+    <div class="row goods">
     </div>
 </div>
+
+
 <footer class="container-fluid">
 
 </footer>
+<script>
+    queryAll();
+
+    function queryAll() {
+        $.get("./api/query.php?do=all", (goods) => {
+            render(goods)
+        })
+    }
+
+    function render(datas) {
+        $(".goods").html("")
+        let data_layout;
+        datas.forEach((data, idx) => {
+            console.log(datas);
+            data_layout = `
+        <div class="col-2 mt-3 ms-5" style="border: 3px solid lightgray;margin:auto;">
+            <a href="" style=" text-decoration-line: none;">
+                <div>
+                    <img src="./imgs/${data.img}" alt="" style="width: 200px; height:200px;padding-right:10px;box-sizing:border-box">
+                </div>
+                <div>
+                    <span>商品名稱:${data.name}</span>
+                </div>
+                <div>
+                    <span style="color: red;">價格:${data.price}</span>
+                </div>
+            </a>
+        </div>`
+            $(".goods").append(data_layout)
+        })
+    }
+</script>
