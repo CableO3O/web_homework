@@ -9,6 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/jquery-1.9.1.min.js"></script>
+    <style>
+        footer {
+            background-color: orange;
+        }
+    </style>
 </head>
 
 <body>
@@ -76,22 +81,22 @@
     </nav>
     <div class="container-fluid">
         <?php
-$do=$_GET['do']??'main';
-$file="./front/{$do}.php";
-if (file_exists($file)) {
-  include $file;
-}else{
-  include "./front/main.php";
-}
+        $do = $_GET['do'] ?? 'main';
+        $file = "./front/{$do}.php";
+        if (file_exists($file)) {
+            include $file;
+        } else {
+            include "./front/main.php";
+        }
 
-?>
-        </div>
-        <footer class="container-fluid">
+        ?>
+    </div>
+    <footer class="container-fluid" style="width: auto;height:20vh">
 
-        </footer>
-        <script>
+    </footer>
+    <script>
 
-        </script>
+    </script>
 
 </body>
 
