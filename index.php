@@ -48,9 +48,9 @@
                 if (!isset($_SESSION['user'])) {
                 ?>
                     <div class="d-flex">
-                        <a href="./front/reg.php">註冊</a>
+                        <a href="index.php?do=reg">註冊</a>
                         &nbsp;|&nbsp;
-                        <a href="./front/login.php">登入</a>
+                        <a href="index.php?do=login">登入</a>
                     </div>
                 <?php
                 } else if ($_SESSION['user'] == 'admin') {
@@ -75,30 +75,16 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-6">
-                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner ">
-                        <div class="carousel-item active" data-bs-interval="2000">
-                            <img src="./imgs/1.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="./imgs/2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./imgs/3.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
+        <?php
+$do=$_GET['do']??'main';
+$file="./front/{$do}.php";
+if (file_exists($file)) {
+  include $file;
+}else{
+  include "./front/main.php";
+}
+
+?>
         </div>
         <footer class="container-fluid">
 

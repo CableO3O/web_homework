@@ -51,7 +51,7 @@
   <div class="content">
     <?php
     $do = $_GET['do'] ?? 'user_data';
-    $file = "./front/{$do}.php";
+    $file = "./user_back/{$do}.php";
     if (file_exists($file)) {
       include $file;
     } else {
