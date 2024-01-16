@@ -8,6 +8,7 @@ if (!empty($_FILES['img']['tmp_name'])) {
 }
 $good=[
     'user_id'=>$_POST['id'],
+    'user_name'=>$_POST['acc'],
     'name'=>$_POST['name'],
     'price'=>$_POST['price'],
     'text'=>$_POST['text'],

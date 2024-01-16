@@ -1,4 +1,5 @@
-    <table style="width: 100%;">
+<h1>會員帳號管理</h1>
+ <table style="width: 100%;">
         <tr>
             <td style="width: 30%;">
                 帳號:
@@ -30,6 +31,7 @@
             $(".users").html("")
             let data_layout;
             datas.forEach((data, idx) => {
+                console.log(datas);
                 data_layout = `
                 <tr class='mt-5'>
                     <td style="width: 30%;">

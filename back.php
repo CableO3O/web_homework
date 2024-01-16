@@ -47,7 +47,7 @@ if (!isset($_SESSION['user'])||$_SESSION['user']!='admin') {
 
   <div class="sidebar">
     <a href="index.php" class="fa-solid fa-house">返回首頁</a>
-    <a href="?do=user_data">所有會員</a>
+    <a href="?do=user_data">會員帳號管理</a>
     <a href="?do=web">網頁管理</a>
     <a href="?do=goods">商品管理</a>
   </div>

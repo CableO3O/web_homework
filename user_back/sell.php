@@ -11,6 +11,7 @@ foreach ($rows as $user) {
                 <form action="./api/add_good.php" method="post" enctype="multipart/form-data">
                     <div class="row" style="text-align: left;">
                         <input type="hidden" name="id" id="id" value="<?= $user['id']; ?>">
+                        <input type="hidden" name="acc" id="acc" value="<?= $user['acc']; ?>">
                         <label for="name" class="mt-5">商品名稱:</label>
                         <input type="text" name="name" id="name" class="form-control">
                     </div>
