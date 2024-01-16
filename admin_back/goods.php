@@ -1,18 +1,20 @@
 <h1>商品管理</h1>
-<h1>會員帳號管理</h1>
 <table style="width: 100%;">
     <tr>
-        <td style="width: 30%;">
+        <td style="width: 20%;">
             商品圖片:
         </td>
-        <td style="width: 20%;">
+        <td style="width: 13%;">
             商品名稱:
         </td>
-        <td style="width: 20%;">
+        <td style="width: 13%;">
             商品賣家:
         </td>
-        <td style="width: 20%;">
+        <td style="width: 13%;">
             商品價格:
+        </td>
+        <td style="width: 30%;">
+            商品說明:
         </td>
         <td style="width: 10%;">
             操作
@@ -26,7 +28,7 @@
     queryAll();
 
     function queryAll() {
-        $.get("./api/query.php?do=goods", (goods) => {
+        $.get("./api/query.php?do=all", (goods) => {
             render(goods)
         })
     }
@@ -37,12 +39,11 @@
         datas.forEach((data, idx) => {
             data_layout = `
                 <tr class='mt-5'>
-                    <td style="width: 30%;">
-                        <input readonly class="form-control" style=width:80% type="text" name="${data.acc}" value="${data.acc}"></td>
-                    <td style="width: 30%;">
-                        <input readonly class="form-control" style=width:80% type="text" name="${data.pw}" value="${data.pw}"></td>
-                    <td style="width: 30%;">
-                        <input readonly class="form-control" style=width:80% type="text" name="${data.email}" value="${data.email}"></td>
+                    <td width='20%'><img style="width: 250px; height:250px;" src="./imgs/${data.img}" alt=""></td>
+                    <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.name}"></td>
+                    <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.user_name}"></td>
+                    <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.price}"></td>
+                    <td width='30%'><textarea readonly name="text" id="text" class="form-control"  cols="30" rows="10">${data.text}</textarea>
                     <td style="width: 10%;">
                         <input type="button" value="刪除" class="btn btn-danger" onclick="del(${data.id})">
                     </td>
