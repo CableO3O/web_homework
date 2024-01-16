@@ -76,7 +76,7 @@
             console.log(datas);
             data_layout = `
         <div class="col-sm-2 mt-3 ms-5 col-12" style="margin:auto;">
-            <a href="" class='link-container' style=" text-decoration-line: none;">
+            <a href="index.php?do=good&id=${data.id}" class='link-container' style=" text-decoration-line: none;">
                 <div>
                     <img src="./imgs/${data.img}" alt="" style="width: 20vh; height:20vh;box-sizing:border-box">
                 </div>
