@@ -151,7 +151,7 @@ function to($url) {
 
 $User=new DB('users');
 $Shop=new DB('shop');
-
+$Carousel=new DB('carousel');
 
 
 ?>
