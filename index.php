@@ -29,6 +29,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">客服中心</a>
                     </li>
+                    <?php 
+                    if (!isset($_GET['main'])) {
+                    
+                    ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             商品品項
@@ -42,6 +46,9 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <?php
+                    }
+                    ?>
                     <li class="nav-item " style="margin-left: 100px;">
                         <form class="d-flex me-5" role="search">
                             <input style="width:800px" class="form-control me-2" type="search" placeholder="輸入關鍵字搜尋商品" aria-label="Search">
@@ -92,7 +99,9 @@
         ?>
     </div>
     <footer class="container-fluid" style="width: auto;height:20vh">
-
+    <div style="text-align:center">
+        <h1>隨便買商場</h1>
+    </div>
     </footer>
     <script>
 
