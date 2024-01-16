@@ -2,16 +2,20 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner ">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="./imgs/1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="./imgs/2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./imgs/3.jpg" class="d-block w-100" alt="...">
-                    </div>
+                <div class="carousel-inner">
+                    <?php
+                    $carousels = $Carousel->all();
+                    foreach ($carousels as $key => $carousel) {
+                        // dd($carousel)
+                    ?>
+                        <div style="width: 100%; height:30vh" class="carousel-item <?=($key==0)?'active':'';?>" data-bs-interval="3000">
+                            <a href="<?=$carousel['href'];?>">
+                                <img src="./imgs/<?=$carousel['img'];?>" class="d-block" style="height: 30vh;width:97vh" alt="<?=$carousel['text'];?>">
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,7 +56,7 @@
         <div class="col-2 mt-3 ms-5" style="border: 3px solid lightgray;margin:auto;">
             <a href="" style=" text-decoration-line: none;">
                 <div>
-                    <img src="./imgs/${data.img}" alt="" style="width: 200px; height:200px;padding-right:10px;box-sizing:border-box">
+                    <img src="./imgs/${data.img}" alt="" style="width: 20vh; height:20vh;padding-right:10px;box-sizing:border-box">
                 </div>
                 <div>
                     <span>商品名稱:${data.name}</span>
