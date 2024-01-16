@@ -57,18 +57,18 @@
                         </form>
                     </li>
                 </ul>
-                <a href="" style="font-size:40px" class="fa-solid fa-cart-shopping me-5"></a>
                 <?php
                 if (!isset($_SESSION['user'])) {
-                ?>
+                    ?>
                     <div class="d-flex">
                         <a href="index.php?do=reg">註冊</a>
                         &nbsp;|&nbsp;
                         <a href="index.php?do=login">登入</a>
                     </div>
-                <?php
+                    <?php
                 } else if ($_SESSION['user'] == 'admin') {
-                ?>
+                    ?>
+                    <a href="" style="font-size:30px" class="fa-solid fa-cart-shopping me-5"></a>
                     <div class='me-5'>
                         <span style="color:white">
                             <?= $_SESSION['user']; ?>歡迎
