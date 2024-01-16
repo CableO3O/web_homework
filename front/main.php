@@ -7,7 +7,7 @@
             border: 1px solid #ccc;
             text-decoration: none;
             color: #333;
-            transition: background-color 0.3s ease; /* 添加背景顏色的過渡效果 */
+            transition: background-color 0.1s ease; /* 添加背景顏色的過渡效果 */
         }
 
         /* 滑鼠懸停狀態樣式 */
