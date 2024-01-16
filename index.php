@@ -68,7 +68,6 @@
                     <?php
                 } else if ($_SESSION['user'] == 'admin') {
                     ?>
-                    <a href="" style="font-size:30px" class="fa-solid fa-cart-shopping me-5"></a>
                     <div class='me-5'>
                         <span style="color:white">
                             <?= $_SESSION['user']; ?>歡迎
@@ -76,9 +75,10 @@
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
                     <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
-                <?php
+                    <?php
                 } else {
-                ?>
+                    ?>
+                    <a href="index.php?do=shopcar" style="font-size:30px" class="fa-solid fa-cart-shopping me-5"></a>
                     <div class='me-5'>
                         <?= $_SESSION['user']; ?>歡迎
                     </div>
