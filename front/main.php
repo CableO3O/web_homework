@@ -1,3 +1,25 @@
+<style>
+        /* 常態狀態樣式 */
+        .link-container {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease; /* 添加背景顏色的過渡效果 */
+        }
+
+        /* 滑鼠懸停狀態樣式 */
+        .link-container:hover {
+            background-color: #f0f0f0; /* 滑鼠懸停時的背景顏色 */
+        }
+
+        /* 按下狀態樣式 */
+        .link-container:active {
+            background-color: #ccc; /* 按下時的背景顏色 */
+        }
+    </style>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-6">
@@ -53,10 +75,10 @@
         datas.forEach((data, idx) => {
             console.log(datas);
             data_layout = `
-        <div class="col-sm-2 mt-3 ms-5 col-12" style="border: 3px solid lightgray;margin:auto;">
-            <a href="" style=" text-decoration-line: none;">
+        <div class="col-sm-2 mt-3 ms-5 col-12" style="margin:auto;">
+            <a href="" class='link-container' style=" text-decoration-line: none;">
                 <div>
-                    <img src="./imgs/${data.img}" alt="" style="width: 20vh; height:20vh;padding-right:10px;box-sizing:border-box">
+                    <img src="./imgs/${data.img}" alt="" style="width: 20vh; height:20vh;box-sizing:border-box">
                 </div>
                 <div>
                     <span>商品名稱:${data.name}</span>
