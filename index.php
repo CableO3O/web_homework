@@ -68,7 +68,9 @@
                 } else if ($_SESSION['user'] == 'admin') {
                 ?>
                     <div class='me-5'>
-                        <?= $_SESSION['user']; ?>歡迎
+                        <span style="color:white">
+                            <?= $_SESSION['user']; ?>歡迎
+                        </span>
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
                     <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
