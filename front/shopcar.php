@@ -14,6 +14,7 @@
         font-size: 24px;
     }
 </style>
+
 <div class="container-fluid">
     <table style="width: 100%;">
         <tr>
@@ -38,13 +39,13 @@
                     <input class="text" readonly type="text" name="name" id="name" value="<?= $good['name']; ?>">
                 </td>
                 <td>
-                    <input class="text" readonly type="text" name="price" id="price" value="<?= $good['price']; ?>">
+                    <input class="text" readonly type="text" name="price" id="price<?= $good['id']; ?>" value="<?= $good['price']; ?>">
                 </td>
                 <td>
-                    <input class="form-control" onchange="total()" style="width: 40%;" type="number" name="count" id="count" value="<?= $good['count']; ?>">
+                    <input class="form-control" onchange="total(<?= $good['id']; ?>)" style="width: 40%;" type="number" name="count" id="count<?= $good['id']; ?>" value="<?= $good['count']; ?>">
                 </td>
                 <td>
-                    <input class="text" readonly type="number" name="total" id="total" value="<?= $good['price'] * $good['count']; ?>">
+                    <input class="text" readonly type="number" name="total" id="total<?= $good['id']; ?>" value="<?= $good['price'] * $good['count']; ?>">
                 </td>
                 <td>
                     <button class="btn btn-success">確認購買</button>
@@ -57,14 +58,14 @@
     </table>
 </div>
 <script>
-   function total() {
-    let num1=Number($('#price').val());
-    let num2=Number($('#count').val());    
-    let total=$('#total');
-    console.log(num1);
-    console.log(num2);
-    console.log(total);
-    result=num1*num2;
-    total.val(result);
-   }
+    function total(goodId) {
+        let num1 = Number($('#price' + goodId).val());
+        let num2 = Number($('#count' + goodId).val());
+        let total = $('#total' + goodId);
+        console.log(num1);
+        console.log(num2);
+        console.log(total);
+        result = num1 * num2;
+        total.val(result);
+    }
 </script>

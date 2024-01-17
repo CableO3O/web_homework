@@ -79,7 +79,8 @@ $good = $Shop->find($_GET['id']);
             price: $('#price').val(),
             name: $('#name').val(),
             img: '<?= $good['img']; ?>',
-            count: $('#count').val()
+            count: $('#count').val(),
+            pay:0
         }
         $.post("./api/add_shopcar.php", good, (res) => {
             if (parseInt(res)==1) {   
