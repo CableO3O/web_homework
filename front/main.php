@@ -1,28 +1,31 @@
 <style>
-        /* 常態狀態樣式 */
-        .link-container {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.1s ease; /* 添加背景顏色的過渡效果 */
-        }
+    /* 常態狀態樣式 */
+    .link-container {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.1s ease;
+        /* 添加背景顏色的過渡效果 */
+    }
 
-        /* 滑鼠懸停狀態樣式 */
-        .link-container:hover {
-            background-color: #f0f0f0; /* 滑鼠懸停時的背景顏色 */
-        }
+    /* 滑鼠懸停狀態樣式 */
+    .link-container:hover {
+        background-color: #f0f0f0;
+        /* 滑鼠懸停時的背景顏色 */
+    }
 
-        /* 按下狀態樣式 */
-        .link-container:active {
-            background-color: #ccc; /* 按下時的背景顏色 */
-        }
-    </style>
+    /* 按下狀態樣式 */
+    .link-container:active {
+        background-color: #ccc;
+        /* 按下時的背景顏色 */
+    }
+</style>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-12">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <?php
@@ -30,9 +33,9 @@
                     foreach ($carousels as $key => $carousel) {
                         // dd($carousel)
                     ?>
-                        <div style="width: 100%; height:30vh" class="carousel-item <?=($key==0)?'active':'';?>" data-bs-interval="3000">
-                            <a href="<?=$carousel['href'];?>">
-                                <img src="./imgs/<?=$carousel['img'];?>" class="d-block" style="height: 30vh;width:97vh" alt="<?=$carousel['text'];?>">
+                        <div style="width: 100%; height:30vh" class="carousel-item <?= ($key == 0) ? 'active' : ''; ?>" data-bs-interval="3000">
+                            <a href="<?= $carousel['href']; ?>">
+                                <img src="./imgs/<?= $carousel['img']; ?>" class="d-block" style="width:100%;height:100%" alt="<?= $carousel['text']; ?>">
                             </a>
                         </div>
                     <?php
@@ -74,20 +77,25 @@
         let data_layout;
         datas.forEach((data, idx) => {
             console.log(datas);
-            data_layout = `
-        <div class="col-sm-2 mt-3 ms-5 col-12" style="margin:auto;">
+            data_layout = 
+       `<div class="col-sm-2 mt-3 ms-5 col-12" style="margin:auto;">
             <a href="index.php?do=good&id=${data.id}" class='link-container' style=" text-decoration-line: none;">
-                <div>
-                    <img src="./imgs/${data.img}" alt="" style="width: 20vh; height:20vh;box-sizing:border-box">
-                </div>
-                <div>
-                    <span>商品名稱:${data.name}</span>
-                </div>
-                <div>
-                    <span style="color: red;">價格:${data.price}</span>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                         <img src="./imgs/${data.img}" style="width:100%;height:150px"  alt="">
+                        </div>
+                        <div class="col-12">
+                            <span>商品名稱:${data.name}</span>
+                        </div>
+                        <div class="col-12">
+                            <span style="color: red;">價格:${data.price}</span>
+                        </div>
+                    </div>
                 </div>
             </a>
-        </div>`
+        </div>
+       `
             $(".goods").append(data_layout)
         })
     }
