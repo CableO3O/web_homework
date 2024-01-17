@@ -27,10 +27,11 @@
             <th style="width: 10%;">操作</th>
         </tr>
         <?php
-        $shopcar = $Shopcar->all("where `user_id`='{$_SESSION['id']}'");
+        $shopcar = $Shopcar->all("where `user_id`='{$_SESSION['id']}' and `pay`=0");
         foreach ($shopcar as $key => $good) {
         ?>
             <tr>
+                <input type="hidden" name="id" id="id<?= $good['id']; ?>" value="<?= $good['id']; ?>">
                 <td><?= $key + 1; ?></td>
                 <td>
                     <img src="./imgs/<?= $good['img']; ?>" style="width: 250px;height:200px" alt="">
@@ -48,7 +49,7 @@
                     <input class="text" readonly type="number" name="total" id="total<?= $good['id']; ?>" value="<?= $good['price'] * $good['count']; ?>">
                 </td>
                 <td>
-                    <button class="btn btn-success">確認購買</button>
+                    <button class="btn btn-success" onclick="buy(<?= $good['id']; ?>)">確認購買</button>
                     <button class="btn btn-danger">刪除</button>
                 </td>
             </tr>
@@ -67,5 +68,17 @@
         console.log(total);
         result = num1 * num2;
         total.val(result);
+    }
+    function buy(goodId) {
+        let good = {
+            id: $('#id' + goodId).val(),
+            count: $('#count' + goodId).val(),
+            pay:1
+        }
+        console.log(good);
+        $.post("./api/add_shopcar.php",good,()=>{
+            alert("購買成功");
+            location.reload()
+        })
     }
 </script>
