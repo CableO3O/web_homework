@@ -1,8 +1,5 @@
 <?php
 $good = $Shop->find($_GET['id']);
-// dd($good);
-$users = $User->all(['acc' => $_SESSION['user']]);
-// dd($users);
 ?>
 <style>
     .good {
@@ -29,13 +26,7 @@ $users = $User->all(['acc' => $_SESSION['user']]);
                     <img src="./imgs/<?= $good['img']; ?>" alt="">
                 </div>
                 <div class="col-6" style="text-align: left;">
-                    <?php
-                    foreach ($users as $user) {
-                    ?>
-                        <input type="hidden" name="user_id" id="user_id" value="<?= $user['id']; ?>">
-                    <?php
-                    }
-                    ?>
+                    <input type="hidden" name="user_id" id="user_id" value="<?= $_SESSION['id']; ?>">
                     <input type="hidden" name="good_id" id="good_id" value="<?= $good['id']; ?>">
                     <div class="good mt-5">
                         <label class="" for="name">商品名稱:</label>
@@ -58,7 +49,7 @@ $users = $User->all(['acc' => $_SESSION['user']]);
             </div>
             <div class="col-12 mt-5">
                 <?php
-                $check = $Shopcar->count("where `user_id`='{$user['id']}' and `good_id`='{$_GET['id']}'");
+                $check = $Shopcar->count("where `user_id`='{$_SESSION['id']}' and `good_id`='{$_GET['id']}'");
                 if ($check == 0) {
                 ?>
                     <button class="btn btn-primary btn-lg" onclick="add()">加入購物車</button>
@@ -86,9 +77,10 @@ $users = $User->all(['acc' => $_SESSION['user']]);
         }
         $.post("./api/add_shopcar.php", good, () => {
             alert("已加入購物車");
-            location.href="./index.php?do=main";
+            location.href = "./index.php?do=main";
         })
     }
+
     function del() {
         let good = {
             user_id: $('#user_id').val(),
@@ -96,7 +88,7 @@ $users = $User->all(['acc' => $_SESSION['user']]);
         }
         $.post("./api/del_shopcar.php", good, () => {
             alert("已從購物車刪除");
-            location.href="./index.php?do=main";
+            location.href = "./index.php?do=main";
         })
     }
 </script>

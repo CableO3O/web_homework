@@ -1,8 +1,3 @@
-<?php
-$rows = $User->all(['acc' => $_SESSION['user']]);
-foreach ($rows as $user) {
-?>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-4"></div>
@@ -10,8 +5,8 @@ foreach ($rows as $user) {
                 <h2 class="mt-5">上架物品</h2>
                 <form action="./api/add_good.php" method="post" enctype="multipart/form-data">
                     <div class="row" style="text-align: left;">
-                        <input type="hidden" name="id" id="id" value="<?= $user['id']; ?>">
-                        <input type="hidden" name="acc" id="acc" value="<?= $user['acc']; ?>">
+                        <input type="hidden" name="id" id="id" value="<?= $_SESSION['id']; ?>">
+                        <input type="hidden" name="acc" id="acc" value="<?= $_SESSION['user']; ?>">
                         <label for="name" class="mt-5">商品名稱:</label>
                         <input type="text" name="name" id="name" class="form-control">
                     </div>
@@ -33,6 +28,3 @@ foreach ($rows as $user) {
             <div class="col-4"></div>
         </div>
     </div>
-<?php
-}
-?>

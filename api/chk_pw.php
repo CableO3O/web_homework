@@ -1,6 +1,9 @@
 <?php include_once "db.php";
-
 $res=$User->count($_POST);
+$users = $User->all(['acc' => $_SESSION['user']]);
+foreach ($users as $user) {
+    $_SESSION['id']=$user['id'];
+}
 
 if ($res) {
     $_SESSION['user']=$_POST['acc'];
