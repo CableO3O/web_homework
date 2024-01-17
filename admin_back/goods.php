@@ -21,9 +21,10 @@
         </td>
     </tr>
 </table>
-<table class="goods" style="width: 100%;">
-
-</table>
+<div class="mt-2">
+    <table class="goods" style="width: 100%;">
+    </table>
+</div>
 <script>
     queryAll();
 
@@ -38,12 +39,12 @@
         let data_layout;
         datas.forEach((data, idx) => {
             data_layout = `
-                <tr class='mt-5'>
+                <tr>
                     <td width='20%'><img style="width: 250px; height:250px;" src="./imgs/${data.img}" alt=""></td>
                     <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.name}"></td>
                     <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.user_name}"></td>
                     <td width='13%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.price}"></td>
-                    <td width='30%'><textarea readonly name="text" id="text" class="form-control"  cols="30" rows="10">${data.text}</textarea>
+                    <td width='30%'><input readonly style="width: 80%;" class="form-control" type="text" name="" id="" value="${data.text}"></td>
                     <td style="width: 10%;">
                         <input type="button" value="刪除" class="btn btn-danger" onclick="del(${data.id})">
                     </td>

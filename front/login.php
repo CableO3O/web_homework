@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="en">
-
-
 <div class="container-fluid" >
     <div class="row">
         <div class="col-4" style="background-color: lightgray;"></div>
-        <div class="col-4 text-center" style="height:70vh">
+        <div class="col-4 text-center" >
             <h2 class="mt-5">會員登入</h2>
             <input type="text" name="acc" id="acc" class="col-3 form-control mt-5" placeholder="請輸入帳號">
-            <input type="text" name="pw" id="pw" class="col-3 form-control mt-5" placeholder="請輸入密碼">
+            <input type="password" name="pw" id="pw" class="col-3 form-control mt-5" placeholder="請輸入密碼">
             <input type="submit" value="登入" class="btn btn-primary mt-5 mb-5 form-control" onclick="login()">
 
-            <p class="mt-5">沒有OO商城帳號?<a href="index.php?do=reg">點我註冊</a></p>
+            <p class="mt-5">沒有隨便買商城帳號?<a href="index.php?do=reg">點我註冊</a></p>
         </div>
         <div class="col-4" style="background-color: lightgray;"></div>
     </div>

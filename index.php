@@ -52,9 +52,9 @@
                     if (!isset($_SESSION['user'])) {
                     ?>
                         <div class="d-flex">
-                            <a href="index.php?do=reg">註冊</a>
-                            &nbsp;|&nbsp;
-                            <a href="index.php?do=login">登入</a>
+                            <a href="index.php?do=reg" class="btn btn-warning">註冊</a>
+                            &nbsp;
+                            <a href="index.php?do=login" class="btn btn-success">登入</a>
                         </div>
                     <?php
                     } else if ($_SESSION['user'] == 'admin') {
