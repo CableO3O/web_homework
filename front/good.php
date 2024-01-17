@@ -17,7 +17,7 @@ $good = $Shop->find($_GET['id']);
         font-size: 24px;
     }
 </style>
-<div class="container-fluid" style="height:30%;">
+<div class="container-fluid" style="height:30%; background-color: lightblue;">
     <div class="row  justify-content-center">
             <div class="col-md-6 col-12" >
                 <img style="width: 69%;" src="./imgs/<?= $good['img']; ?>" alt="">

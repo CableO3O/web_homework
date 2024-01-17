@@ -94,7 +94,6 @@
     </div>
     <div class="container-fluid" style="width: auto;height:20vh ;background-color:orange;">
         <div style="text-align:center">
-            <h1>隨便買商場</h1>
         </div>
     </div>
     <script>
