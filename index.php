@@ -84,7 +84,7 @@
             </div>
         </nav>
     </div>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid">
         <?php
         $do = $_GET['do'] ?? 'main';
         $file = "./front/{$do}.php";
