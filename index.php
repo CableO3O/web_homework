@@ -45,7 +45,7 @@
                         </li>
                         <form class="d-flex me-5" role="search">
                             <input class="form-control me-2" type="search" placeholder="輸入關鍵字搜尋商品" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-primary" type="submit">Search</button>
                         </form>
                     </ul>
                     <?php

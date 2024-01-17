@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['user'])) {
+    to("./index.php");
+}
+?>
 <style>
     .good {
         display: flex;
