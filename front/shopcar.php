@@ -1,13 +1,70 @@
+<style>
+    .good {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .text {
+        width: 80%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 24px;
+    }
+</style>
 <div class="container-fluid">
     <table style="width: 100%;">
         <tr>
             <th style="width: 5%;">編號</th>
-            <th style="width: 25%;">商品圖片</th>
+            <th style="width: 20%;">商品圖片</th>
             <th style="width: 20%;">商品名稱</th>
             <th style="width: 15%;">商品價格</th>
-            <th style="width: 10%;">商品數量</th>
+            <th style="width: 15%;">商品數量</th>
             <th style="width: 15%;">總價</th>
             <th style="width: 10%;">操作</th>
         </tr>
+        <?php
+        $shopcar = $Shopcar->all("where `user_id`='{$_SESSION['id']}'");
+        foreach ($shopcar as $key => $good) {
+        ?>
+            <tr>
+                <td><?= $key + 1; ?></td>
+                <td>
+                    <img src="./imgs/<?= $good['img']; ?>" style="width: 250px;height:200px" alt="">
+                </td>
+                <td>
+                    <input class="text" readonly type="text" name="name" id="name" value="<?= $good['name']; ?>">
+                </td>
+                <td>
+                    <input class="text" readonly type="text" name="price" id="price" value="<?= $good['price']; ?>">
+                </td>
+                <td>
+                    <input class="form-control" onchange="total()" style="width: 40%;" type="number" name="count" id="count" value="<?= $good['count']; ?>">
+                </td>
+                <td>
+                    <input class="text" readonly type="number" name="total" id="total" value="<?= $good['price'] * $good['count']; ?>">
+                </td>
+                <td>
+                    <button class="btn btn-success">確認購買</button>
+                    <button class="btn btn-danger">刪除</button>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
     </table>
 </div>
+<script>
+   function total() {
+    let num1=Number($('#price').val());
+    let num2=Number($('#count').val());    
+    let total=$('#total');
+    console.log(num1);
+    console.log(num2);
+    console.log(total);
+    result=num1*num2;
+    total.val(result);
+   }
+</script>
