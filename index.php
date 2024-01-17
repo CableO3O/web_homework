@@ -18,22 +18,18 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: orange;">
-        <div class="container-fluid" style="background-color: orange; height:10vh">
-            <a class="navbar-brand" href="./index.php" style="font-size: 40px; color:white">隨便買商場</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">客服中心</a>
-                    </li>
-                    <?php
-                    if (!isset($_GET['main'])) {
-
-                    ?>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: orange;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.php" style="color:white">隨便買商場</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">客服中心</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 商品品項
@@ -47,52 +43,48 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+                        <form class="d-flex me-5" role="search">
+                            <input class="form-control me-2" type="search" placeholder="輸入關鍵字搜尋商品" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </ul>
+                    <?php
+                    if (!isset($_SESSION['user'])) {
+                    ?>
+                        <div class="d-flex">
+                            <a href="index.php?do=reg">註冊</a>
+                            &nbsp;|&nbsp;
+                            <a href="index.php?do=login">登入</a>
+                        </div>
+                    <?php
+                    } else if ($_SESSION['user'] == 'admin') {
+                    ?>
+                        <div class='me-5'>
+                            <span style="color:white">
+                                <?= $_SESSION['user']; ?>歡迎
+                            </span>
+                        </div>
+                        <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
+                        <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="index.php?do=shopcar" class='btn btn-outline-dark me-3'>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                        <div class='me-5' style="color:white">
+                            <?= $_SESSION['user']; ?>歡迎
+                        </div>
+                        <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
+                        <a href="user.php" class='btn btn-primary me-5'>會員中心</a>
                     <?php
                     }
                     ?>
-                    <li class="nav-item " style="margin-left: 100px;">
-                        <form class="d-flex me-5" role="search">
-                            <input style="width:800px" class="form-control me-2" type="search" placeholder="輸入關鍵字搜尋商品" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </li>
-                </ul>
-                <?php
-                if (!isset($_SESSION['user'])) {
-                ?>
-                    <div class="d-flex">
-                        <a href="index.php?do=reg">註冊</a>
-                        &nbsp;|&nbsp;
-                        <a href="index.php?do=login">登入</a>
-                    </div>
-                <?php
-                } else if ($_SESSION['user'] == 'admin') {
-                ?>
-                    <div class='me-5'>
-                        <span style="color:white">
-                            <?= $_SESSION['user']; ?>歡迎
-                        </span>
-                    </div>
-                    <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
-                    <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
-                <?php
-                } else {
-                ?>
-                    <a href="index.php?do=shopcar" class='btn btn-outline-dark me-3'>
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <div class='me-5' style="color:white">
-                        <?= $_SESSION['user']; ?>歡迎
-                    </div>
-                    <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
-                    <a href="user.php" class='btn btn-primary me-5'>會員中心</a>
-                <?php
-                }
-                ?>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container-fluid">
+        </nav>
+    </div>
+    <div class="container-fluid mt-5">
         <?php
         $do = $_GET['do'] ?? 'main';
         $file = "./front/{$do}.php";
