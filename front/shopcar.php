@@ -55,7 +55,7 @@ if (!isset($_SESSION['user'])) {
                 </td>
                 <td>
                     <button class="btn btn-success" onclick="buy(<?= $good['id']; ?>)">確認購買</button>
-                    <button class="btn btn-danger">刪除</button>
+                    <button class="btn btn-danger" onclick="del(<?= $good['id']; ?>)">刪除</button>
                 </td>
             </tr>
         <?php
@@ -82,6 +82,12 @@ if (!isset($_SESSION['user'])) {
         }
         $.post("./api/add_shopcar.php",good,()=>{
             alert("購買成功");
+            location.reload()
+        })
+    }
+    function del(goodId) {
+        $.post("./api/del_shopcar.php",id={goodId},()=>{
+            alert("刪除成功");
             location.reload()
         })
     }
