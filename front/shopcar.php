@@ -75,7 +75,6 @@
             count: $('#count' + goodId).val(),
             pay:1
         }
-        console.log(good);
         $.post("./api/add_shopcar.php",good,()=>{
             alert("購買成功");
             location.reload()
