@@ -1,3 +1,8 @@
 <?php
 include_once "db.php";
-$Shopcar->save($_POST);
+if (isset($_SESSION['id'])) {
+    $Shopcar->save($_POST);
+    echo 1;
+}else{
+    echo 0;
+}
