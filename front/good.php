@@ -4,10 +4,26 @@ $good = $Shop->find($_GET['id']);
 $users = $User->all(['acc' => $_SESSION['user']]);
 // dd($users);
 ?>
+<style>
+    .good {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .text {
+        width: 80%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 24px;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-2" style="background-color: lightgray;"></div>
-        <div class="col-8 text-center" style="height:70vh">
+        <div class="col-8 text-center" style="height:70vh ;background-color:lightblue">
             <div class="row">
                 <div class="col-6">
                     <img src="./imgs/<?= $good['img']; ?>" alt="">
@@ -21,17 +37,38 @@ $users = $User->all(['acc' => $_SESSION['user']]);
                     }
                     ?>
                     <input type="hidden" name="good_id" id="good_id" value="<?= $good['id']; ?>">
-                    <label class="mt-3" for="name">商品名稱:</label>
-                    <input readonly class=" form-control" type="text" name="name" id="name" value="<?= $good['name']; ?>">
-                    <label class="mt-3" for="price">商品價格:</label>
-                    <input readonly class=" form-control" type="text" name="price" id="price" value="<?= $good['price']; ?>">
-                    <label class="mt-3" for="name">商品說明:</label>
-                    <input readonly class=" form-control" type="text" name="text" id="text" value="<?= $good['text']; ?>">
+                    <div class="good mt-5">
+                        <label class="" for="name">商品名稱:</label>
+                        <input readonly class="text form-control" type="text" name="name" id="name" value="<?= $good['name']; ?>">
+                    </div>
+                    <div class="good mt-5">
+                        <label class="" for="price">商品價格:</label>
+                        <input readonly style="color: red;" class="text form-control" type="text" name="price" id="price" value="<?= $good['price']; ?>">
+                    </div>
+                    <div class="good mt-5">
+                        <label class="" for="name">商品說明:</label>
+                        <input readonly class="text form-control" type="text" name="text" id="text" value="<?= $good['text']; ?>">
+                    </div>
+                    <div class="good mt-5">
+                        <label class="" for="count">數量:&nbsp;</label>
+                        <input style="width: 30%;" class="form-control" type="number" name="count" id="count" value="1">
+                    </div>
 
                 </div>
             </div>
             <div class="col-12 mt-5">
-                <button class="btn btn-primary btn-lg" onclick="add()">加入購物車</button>
+                <?php
+                $check = $Shopcar->count("where `user_id`='{$user['id']}' and `good_id`='{$_GET['id']}'");
+                if ($check == 0) {
+                ?>
+                    <button class="btn btn-primary btn-lg" onclick="add()">加入購物車</button>
+                <?php
+                } else {
+                ?>
+                    <button class="btn btn-danger btn-lg" onclick="del()">從購物車刪除</button>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <div class="col-2" style="background-color: lightgray;"></div>
@@ -44,10 +81,22 @@ $users = $User->all(['acc' => $_SESSION['user']]);
             good_id: $('#good_id').val(),
             price: $('#price').val(),
             name: $('#name').val(),
-            img: <?= $good['img']; ?>
+            img: '<?= $good['img']; ?>',
+            count: $('#count').val()
         }
-        $.post("./api/update.php", user, () => {
-            alert("修改完成")
+        $.post("./api/add_shopcar.php", good, () => {
+            alert("已加入購物車");
+            location.href="./index.php?do=main";
+        })
+    }
+    function del() {
+        let good = {
+            user_id: $('#user_id').val(),
+            good_id: $('#good_id').val(),
+        }
+        $.post("./api/del_shopcar.php", good, () => {
+            alert("已從購物車刪除");
+            location.href="./index.php?do=main";
         })
     }
 </script>
