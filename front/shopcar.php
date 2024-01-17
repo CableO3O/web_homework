@@ -31,6 +31,18 @@ if (!isset($_SESSION['user'])) {
             <th style="width: 15%;">總價</th>
             <th style="width: 10%;">操作</th>
         </tr>
+    </table>
+        <?php
+        $count=$Shopcar->count("where `user_id`='{$_SESSION['id']}' and `pay`=0");
+            if ($count==0) {
+                ?>
+                <div class="container-fluid text-center">
+                    <h1>購物車內目前沒有訂單</h1>
+                </div>
+                <?php
+            }else{
+        ?>
+        <table style="width: 100%;">
         <?php
         $shopcar = $Shopcar->all("where `user_id`='{$_SESSION['id']}' and `pay`=0");
         foreach ($shopcar as $key => $good) {
@@ -59,7 +71,7 @@ if (!isset($_SESSION['user'])) {
                 </td>
             </tr>
         <?php
-        }
+        }}
         ?>
     </table>
 </div>

@@ -46,18 +46,7 @@
     </table>
 </div>
 <div class="container-fluid">
-<div class="row">
-        <div class="col-6">
-            <h3 style="height:5vh">底部管理</h3>
-        </div>
-        <div class="col-6">
-            <button type="button" style="float:right;height:5vh" class="btn btn-primary fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="">
-                新增
-            </button>
-        </div>
-    </div>
 
-</div>
 <!--add Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
