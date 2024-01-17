@@ -10,11 +10,7 @@
     <script src="https://kit.fontawesome.com/030ac11f0f.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/jquery-1.9.1.min.js"></script>
-    <style>
-        footer {
-            background-color: orange;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -96,11 +92,11 @@
 
         ?>
     </div>
-    <footer class="container-fluid" style="width: auto;height:20vh">
+    <div class="container-fluid" style="width: auto;height:20vh ;background-color:orange;">
         <div style="text-align:center">
             <h1>隨便買商場</h1>
         </div>
-    </footer>
+    </div>
     <script>
 
     </script>

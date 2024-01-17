@@ -29,7 +29,7 @@
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <?php
-                    $carousels = $Carousel->all();
+                    $carousels = $Carousel->all(['sh'=>1]);
                     foreach ($carousels as $key => $carousel) {
                         // dd($carousel)
                     ?>

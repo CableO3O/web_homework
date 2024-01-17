@@ -37,12 +37,26 @@
                         編輯
                     </button>
                     <input type="button" value="刪除" class="btn btn-danger" onclick="del(<?= $carousel['id']; ?>)">
+                    <button class="show-btn btn btn-secondary" data-id='<?= $carousel['id']; ?>'><?= ($carousel['sh'] == 1) ? '顯示' : '隱藏'; ?></button>
                 </td>
             </tr>
         <?php
         }
         ?>
     </table>
+</div>
+<div class="container-fluid">
+<div class="row">
+        <div class="col-6">
+            <h3 style="height:5vh">底部管理</h3>
+        </div>
+        <div class="col-6">
+            <button type="button" style="float:right;height:5vh" class="btn btn-primary fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="">
+                新增
+            </button>
+        </div>
+    </div>
+
 </div>
 <!--add Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -115,4 +129,10 @@
 
         }
     }
+    $(".show-btn").on('click',function(){
+        let id=$(this).data('id');
+        $.post("./api/show.php",{id},()=>{
+            $(this).text(($(this).text()=='顯示')?"隱藏":"顯示");
+        })
+    })
 </script>
