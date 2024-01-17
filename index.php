@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: orange;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: orange;">
         <div class="container-fluid" style="background-color: orange; height:10vh">
             <a class="navbar-brand" href="./index.php" style="font-size: 40px; color:white">隨便買商場</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,23 +30,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">客服中心</a>
                     </li>
-                    <?php 
+                    <?php
                     if (!isset($_GET['main'])) {
-                    
+
                     ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            商品品項
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                商品品項
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
                     <?php
                     }
                     ?>
@@ -59,15 +59,15 @@
                 </ul>
                 <?php
                 if (!isset($_SESSION['user'])) {
-                    ?>
+                ?>
                     <div class="d-flex">
                         <a href="index.php?do=reg">註冊</a>
                         &nbsp;|&nbsp;
                         <a href="index.php?do=login">登入</a>
                     </div>
-                    <?php
+                <?php
                 } else if ($_SESSION['user'] == 'admin') {
-                    ?>
+                ?>
                     <div class='me-5'>
                         <span style="color:white">
                             <?= $_SESSION['user']; ?>歡迎
@@ -75,11 +75,13 @@
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
                     <a href="./back.php" class='btn btn-primary me-5'>返回管理</a>
-                    <?php
+                <?php
                 } else {
-                    ?>
-                    <a href="index.php?do=shopcar" style="font-size:30px" class="fa-solid fa-cart-shopping me-5"></a>
-                    <div class='me-5'>
+                ?>
+                    <a href="index.php?do=shopcar" class='btn btn-outline-dark me-3'>
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <div class='me-5' style="color:white">
                         <?= $_SESSION['user']; ?>歡迎
                     </div>
                     <button class='btn btn-danger me-5' onclick="location.href='./api/logout.php'">登出</button>
@@ -103,9 +105,9 @@
         ?>
     </div>
     <footer class="container-fluid" style="width: auto;height:20vh">
-    <div style="text-align:center">
-        <h1>隨便買商場</h1>
-    </div>
+        <div style="text-align:center">
+            <h1>隨便買商場</h1>
+        </div>
     </footer>
     <script>
 
