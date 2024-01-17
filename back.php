@@ -21,7 +21,7 @@ if (!isset($_SESSION['user'])||$_SESSION['user']!='admin') {
       height: 100%;
       width: 250px;
       padding-top: 50px;
-      background-color: lightsalmon;
+      background-color: orange;
       color: white;
     }
 
