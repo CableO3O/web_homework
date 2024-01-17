@@ -23,7 +23,7 @@ $good = $Shop->find($_GET['id']);
         <div class="col-8 text-center" style="height:70vh ;background-color:lightblue">
             <div class="row">
                 <div class="col-6">
-                    <img src="./imgs/<?= $good['img']; ?>" alt="">
+                    <img style="width: 325px;height:360px" src="./imgs/<?= $good['img']; ?>" alt="">
                 </div>
                 <div class="col-6" style="text-align: left;">
                     <input type="hidden" name="user_id" id="user_id" value="<?= (isset($_SESSION['id'])) ? $_SESSION['id'] : ''; ?>">
