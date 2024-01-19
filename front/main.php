@@ -91,6 +91,9 @@
                         <div class="col-12">
                             <span style="color: red;">價格:${data.price}</span>
                         </div>
+                        <div class="col-12">
+                            <span style="color: blue;font-size:16px">賣家:${data.user_name}</span>
+                        </div>
                     </div>
                 </div>
             </a>
