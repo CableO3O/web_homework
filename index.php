@@ -31,8 +31,8 @@
                                 商品品項
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><div class="dropdown-item" onclick="query150()">150以下商品</div></li>
+                                <li><div class="dropdown-item" onclick="queryAll()">全部商品</div></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

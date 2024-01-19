@@ -11,7 +11,7 @@ switch ($_GET['do']) {
         break;
     case '150down':
         header('Content-Type: application/json; charset=utf-8');
-        $goods = $Shop->all("where `price`<='150'");
+        $goods = $Shop->all("where `price`<= 150 ");
         echo json_encode($goods);
         break;
 }

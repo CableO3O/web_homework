@@ -71,6 +71,11 @@
             render(goods)
         })
     }
+    function query150() {
+        $.get("./api/query.php?do=150down", (goods) => {
+            render(goods)
+        })
+    }
 
     function render(datas) {
         $(".goods").html("")
