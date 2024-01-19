@@ -78,7 +78,10 @@ $good = $Shop->find($_GET['id']);
             if (parseInt(res) == 2) {
                 alert("此帳號為管理員無法購物");
                 location.href = "./index.php?do=main";
-            } else if (parseInt(res) == 1) {
+            } else if(parseInt(res) == 3){
+                alert("此商品為你本人上架無法加入購物車");
+                location.href = "./index.php?do=main";
+            }else if (parseInt(res) == 1) {
                 alert("已加入購物車");
                 location.href = "./index.php?do=main";
             } else {
