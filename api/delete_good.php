@@ -5,3 +5,4 @@ if (file_exists($folderPath . $good['img'])) {
     unlink($folderPath . $good['img']);
 }
 $Shop->del($_POST['id']);
+$Shopcar->del(['good_id'=>$_POST['id']]);
