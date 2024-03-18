@@ -3,14 +3,14 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
 
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=web_homework";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120422";
     protected $pdo;
     protected $table;
 
     public function __construct($table)
     {
         $this->table=$table;
-        $this->pdo=new PDO($this->dsn,'root','');
+        $this->pdo=new PDO($this->dsn,'s1120422','s1120422');
     }
 
 
